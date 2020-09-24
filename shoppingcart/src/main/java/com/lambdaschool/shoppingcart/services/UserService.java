@@ -24,6 +24,10 @@ public interface UserService
      */
     User findUserById(long id);
 
+    User findByName(String name);
+
+    List<User> findByNameContaining(String username);
+
     /**
      * Deletes the user record from the database based off of the provided primary key
      *
@@ -40,4 +44,9 @@ public interface UserService
      * @return the saved user object including any automatically generated fields
      */
     User save(User user);
+
+    User update(
+            User user,
+            long id);
+
 }
