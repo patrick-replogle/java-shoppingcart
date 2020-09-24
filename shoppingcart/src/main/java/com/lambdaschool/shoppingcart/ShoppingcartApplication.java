@@ -20,6 +20,8 @@ public class ShoppingcartApplication
     {
         SpringApplication.run(ShoppingcartApplication.class,
                               args);
+        System.out.println(System.getenv("OAUTHCLIENTID"));
+        System.out.println(System.getenv("OAUTHCLIENTSECRET"));
     }
 
 }

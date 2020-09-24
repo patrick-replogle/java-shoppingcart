@@ -3,6 +3,7 @@ package com.lambdaschool.shoppingcart.handlers;
 import com.lambdaschool.shoppingcart.exceptions.ResourceFoundException;
 import com.lambdaschool.shoppingcart.exceptions.ResourceNotFoundException;
 import com.lambdaschool.shoppingcart.models.ErrorDetail;
+import com.lambdaschool.shoppingcart.services.HelperFunctions;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,26 +1,16 @@
-package com.lambdaschool.shoppingcart.handlers;
+package com.lambdaschool.shoppingcart.services;
 
 import com.lambdaschool.shoppingcart.models.ValidationError;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class contains helper functions - functions that are needed throughout the application. The class can be autowired
- * into any class.
- */
-@Component
-public class HelperFunctions
+@Service(value = "helperFunctions")
+public class HelperFunctionsImpl implements HelperFunctions
 {
-    /**
-     * Searches to see if the exception has any constraint violations to report
-     *
-     * @param cause the exception to search
-     * @return constraint violations formatted for sending to the client
-     */
     public List<ValidationError> getConstraintViolation(Throwable cause)
     {
         // Find any data violations that might be associated with the error and report them
@@ -42,7 +32,7 @@ public class HelperFunctions
             {
                 ValidationError newVe = new ValidationError();
                 newVe.setCode(cv.getInvalidValue()
-                                      .toString());
+                        .toString());
                 newVe.setMessage(cv.getMessage());
                 listVE.add(newVe);
             }
