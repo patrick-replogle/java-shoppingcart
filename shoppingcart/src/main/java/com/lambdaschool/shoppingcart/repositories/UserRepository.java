@@ -12,5 +12,4 @@ public interface UserRepository
 
     List<User> findByUsernameContainingIgnoreCase(String name);
 
-//    User getMyInfo();
 }

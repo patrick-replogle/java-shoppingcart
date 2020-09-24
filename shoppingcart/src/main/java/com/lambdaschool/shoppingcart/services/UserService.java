@@ -49,6 +49,4 @@ public interface UserService
             User user,
             long id);
 
-//    User getMyInfo();
-
 }

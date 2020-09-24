@@ -67,16 +67,7 @@ public class UserServiceImpl
         List<User> list = userrepos.findByUsernameContainingIgnoreCase(username);
         return list;
     }
-
-//    @Override
-//    public User getMyInfo()
-//    {
-//        String username = userAuditing.getCurrentAuditor().get();
-//
-//        System.out.println(username);
-//
-//        return null;
-//    }
+    
 
     @Transactional
     @Override

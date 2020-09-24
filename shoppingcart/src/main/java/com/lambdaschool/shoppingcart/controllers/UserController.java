@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,12 +36,12 @@ public class UserController
         return new ResponseEntity<>(myUsers, HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/myinfo", produces = {"application/json"})
-//    public ResponseEntity<?> getMyInfo()
-//    {
-//        User user = userService.getMyInfo();
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
+    @GetMapping(value = "/myinfo", produces = "application/json")
+    public ResponseEntity<?> getMyInfo(Authentication authentication)
+    {
+        User myInfo = userService.findByName(authentication.getName());
+        return new ResponseEntity<>(myInfo, HttpStatus.OK);
+    }
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/{userId}",
